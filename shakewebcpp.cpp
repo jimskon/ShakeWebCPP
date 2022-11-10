@@ -31,18 +31,20 @@ int main() {
   list<int> result;
   list<int>::iterator it;
   int position;
-  string fileName = "/home/class/shake/Shakespeare.txt";
+  string fileName = "/var/www/html/ShakeWebCPP/shakespeare.txt";
   string line;
-  // create text index
-  textindex index(fileName);
 
   // Prepare for output to web page
   cout << "Content-Type: text/plain\n\n";
 
+  // create text index
+  textindex index(fileName);
+
+  
   ifstream textFile;
   // Open the text file
   textFile.open(fileName, ios::in);
-  if (textFile.bad()) {
+  if (!textFile.is_open()) {
       /* send back the results */
       cout << "File open failure!" << endl;
       return 0;

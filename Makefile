@@ -1,6 +1,5 @@
-#MakeFile to build and deploy the Shakespeare lookup
-
-user = skon
+# MakeFile to build and deploy the Shakespeare lookup
+# /var/www/html/ShakeWebCPP must exist
 CC= g++
 
 #For Optimization
@@ -23,16 +22,17 @@ shakewebcpp: shakewebcpp.o textindex.o
 
 PutCGI: shakewebcpp
 	chmod 757 shakewebcpp
-	cp shakewebcpp /usr/lib/cgi-bin/$(user)_shakewebcpp.cgi 
+	cp shakewebcpp /usr/lib/cgi-bin/shakewebcpp.cgi 
 
 	echo "Current contents of your cgi-bin directory: "
 	find /usr/lib/cgi-bin/ -type f -mmin -5 -ls	
 
 PutHTML: shakewebcpp.html shakewebcpp.css shakewebcpp.js
-	cp shakewebcpp.html /var/www/html/class/softdev/$(user)/ShakeWebCPP/
-	cp shakewebcpp.css /var/www/html/class/softdev/$(user)/ShakeWebCPP/
-	cp shakewebcpp.js /var/www/html/class/softdev/$(user)/ShakeWebCPP/
+	cp shakewebcpp.html /var/www/html/ShakeWebCPP/
+	cp shakewebcpp.css /var/www/html/ShakeWebCPP/
+	cp shakewebcpp.js /var/www/html/ShakeWebCPP/
+	cp shakespeare.txt /var/www/html/ShakeWebCPP/
 	echo "Current contents of your HTML directory: "
-	ls -l /var/www/html/class/softdev/$(user)/ShakeWebCPP/
+	ls -l /var/www/html/ShakeWebCPP/
 clean:
 	rm -f *.o  shakewebcpp

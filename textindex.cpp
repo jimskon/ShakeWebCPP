@@ -45,8 +45,8 @@ using namespace std;
 
   /* open text file */
   infile.open(filename, ios::in);
-  if (!infile) {
-	cerr << "Error - can't open input file: " << filename << endl;
+  if (!infile.is_open()) {
+	cout << "Error - can't open input file: " << filename << endl;
 	return;  /* error */
   }
 
@@ -75,7 +75,6 @@ using namespace std;
 
   }
   cout << "Words: " << wordcount << " Unique: " << index.size() << endl;
-
   return;  /* success */
 }
 

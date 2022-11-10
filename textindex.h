@@ -16,7 +16,6 @@
     list<int> indexSearch(string);
 
   private:
-
     map<string, list<int> > index;
 
     string getNextWord(string&);

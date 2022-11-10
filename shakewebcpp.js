@@ -35,7 +35,7 @@ function getMatches(){
     // Clear the previous results
     document.querySelector('#searchresults').innerHTML = "";
 
-    fetch('/cgi-bin/skon_shakewebcpp.cgi?word='+searchStr, {
+    fetch('/cgi-bin/shakewebcpp.cgi?word='+searchStr, {
 	method: 'get'
     })
 	.then (response => response.text() )
