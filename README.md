@@ -7,3 +7,5 @@ Must do the following:
  - sudo apt install libcgicc-dev
  - sudo chmod 777  /usr/lib/cgi-bin/
  - sudo chown ubuntu /var/www/html/ShakeWebCPP/
+ - sudo a2enmod cgi. # enable cgi
+ - sudo systemctl restart apache2
